@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 1
+  starttime: 2016-04-12 15:21:33
+  endtime: 2016-04-12 15:21:33
+  user_id: 1
+
+two:
+  day: 1
+  starttime: 2016-04-12 15:21:33
+  endtime: 2016-04-12 15:21:33
+  user_id: 1
