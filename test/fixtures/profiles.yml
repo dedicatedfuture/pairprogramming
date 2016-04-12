@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fname: MyString
+  lname: MyString
+  bio: MyText
+  workexp: MyText
+  teachexp: MyText
+  skillexp: MyText
+
+two:
+  fname: MyString
+  lname: MyString
+  bio: MyText
+  workexp: MyText
+  teachexp: MyText
+  skillexp: MyText

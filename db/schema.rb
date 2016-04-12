@@ -11,9 +11,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412180526) do
+ActiveRecord::Schema.define(version: 20160412192220) do
+
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "availabilities", force: :cascade do |t|
+    t.integer  "day"
+    t.time     "starttime"
+    t.time     "endtime"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "homes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.text     "bio"
+    t.text     "workexp"
+    t.text     "teachexp"
+    t.text     "skillexp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "skill"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "unavailables", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_skills", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "skill_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,5 +86,13 @@ ActiveRecord::Schema.define(version: 20160412180526) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "users_appointments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "appointment_id"
+    t.boolean  "mentor"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
 end
