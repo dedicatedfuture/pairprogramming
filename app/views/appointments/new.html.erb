@@ -1,0 +1,11 @@
+<%= form_for @appointment, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <% f.label :start %>
+  Start date & time: 
+  <%= f.datetime_field :start %><br>
+  <% f.label :end %>
+  End date & time:
+  <%= f.datetime_field :end %>
+ 
+  <%= f.submit "Create" %>
+<% end %>
+

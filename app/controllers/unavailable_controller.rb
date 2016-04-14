@@ -1,0 +1,2 @@
+class UnavailableController < ApplicationController
+end

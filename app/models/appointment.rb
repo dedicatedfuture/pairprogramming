@@ -1,3 +1,5 @@
 class Appointment < ActiveRecord::Base
-	has many :users, through: :users_appointments
+	validates :start, presence: :true
+	validates :end, presence: :true
+	has_many :users, through: :users_appointments
 end
