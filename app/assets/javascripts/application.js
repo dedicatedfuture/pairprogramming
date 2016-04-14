@@ -15,3 +15,25 @@
 //= require jquery-ui/datepicker
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+ $('#basicExample .time').timepicker({
+        'showDuration': true,
+        'timeFormat': 'g:ia'
+    });
+
+    $('#basicExample .date').datepicker({
+        'format': 'm/d/yyyy',
+        'autoclose': true
+    });
+
+    // initialize datepair
+    $('#basicExample').datepair();
+
+
+    $('.datepicker').datepicker({
+    format: 'mm/dd/yyyy',
+    startDate: '-3d'
+	});
+});
