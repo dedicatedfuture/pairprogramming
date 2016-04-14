@@ -1,0 +1,9 @@
+
+<ul>
+	<% @availabilities.each do |avail| %>
+		<li>Availability starts at: <%= avail.starttime.strftime("%I:%M %p") %> and ends at: <%= avail.endtime.strftime("%I:%M %p") %> on <%= avail.day %>
+		<%= link_to "Edit", edit_availability_path(avail) %> 
+		|
+		 <%= link_to "Delete", availability_path(avail), data: {confirm:  "Are you sure you want to delete?"}, :method => :delete %></li>
+	<% end %> 
+</ul>

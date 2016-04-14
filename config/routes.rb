@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   end
   root 'appointments#index'
 
-  resources :appointments do 
-    resources :availability
-  end
+  resources :appointments 
+  resources :availabilities
+  
   resources :profiles 
   
 

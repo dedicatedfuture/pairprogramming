@@ -1,4 +1,4 @@
-class AvailabilityController < ApplicationController
+class AvailabilitiesController < ApplicationController
 
 	def index
 		@availabilities = Availability.all
@@ -19,6 +19,8 @@ class AvailabilityController < ApplicationController
 	end
 
 	def show
+    
+    @availability = Availability.find(params[:id])
 
 	end
 
@@ -38,11 +40,17 @@ class AvailabilityController < ApplicationController
 	end
 
 	def destroy
+     @availability = Availability.find(params[:id])
 	@availability.destroy
     respond_to do |format|
       format.html { redirect_to availabilities_url, notice: 'Availability was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  def new
+    @availability = Availability.new
+  end
+  
 
     private
     # Use callbacks to share common setup or constraints between actions.
@@ -54,9 +62,7 @@ class AvailabilityController < ApplicationController
     def availability_params
       params.require(:availability).permit(:day, :starttime, :endtime, :user_id)
     end
-	end
 
-	def new
-		@availability = Availability.new
-	end
+
+	
 end
