@@ -1,0 +1,8 @@
+<%= form_for @appointment, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <% f.label :start %>
+  <%= f.text_field :start %>
+  <% f.label :end %>
+  <%= f.text_field :end %>
+ 
+  <%= f.submit "Create" %>
+<% end %>
