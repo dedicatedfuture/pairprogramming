@@ -1,19 +1,18 @@
-<%= form_for @appointment, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+
+<%= form_for @appointment, url: {action: "create"}, html: {class: "nifty_form", id: "basicExample"} do |f| %>
   <% f.label :start %>
-  Start date & time: 
-  <%= f.datetime_field :start %><br>
+  Start date: 
+  <%= f.datetime_field :start, class: "date start" %>
+  <% f.label :starttime %>
+  <%= f.text_field :starttime, class: "time start" %>
+  <br>
   <% f.label :end %>
   End date & time:
-  <%= f.datetime_field :end %>
+  <%= f.datetime_field :end, class: "date end"  %>
+   <% f.label :endtime %>
+  <%= f.text_field :endtime, class: "time end" %>
+
  
   <%= f.submit "Create" %>
 <% end %>
 
-<div id="calendar"></div>
-
-<p id="basicExample">
-    <input type="text" class="date start" />
-    <input type="text" class="time start" /> to
-    <input type="text" class="time end" />
-    <input type="text" class="date end" />
-</p>
