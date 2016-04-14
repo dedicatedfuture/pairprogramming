@@ -21,7 +21,7 @@
 
 <div id="skills_wrapper">
    <h2>What programming skills are you familiar with?</h2>
-  <%= form_for [current_user, @skill], url: {controller: :skills, action: "create"}, :id => 'skillform' do |f| %>
+  <%= form_for [current_user, @skill], url: {controller: :skills, action: "create"}, remote: true, :id => 'skillform' do |f| %>
       <%= f.label(:skill, "What Skills Do You Have?") %><br>
       <%= f.text_field :skill %>
    <button id="add_more_button" class="add_field_button">Add More Skills</button>

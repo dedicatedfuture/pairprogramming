@@ -10,6 +10,7 @@ $(document).ready(function(){
 
 $(add_button).click(function(e){
         e.preventDefault();
+        console.log("clicked")
         if(x < max_fields){
             x++;
             $(wrapper).append('<div><input type="text" name="skills[]" id="skills_"/><a href="#" class="remove_field">Remove</a></div>');

@@ -5,7 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :appointments, through: :users_appointments, dependent: :destroy
+  has_many :users_appointments  
+
+  has_many :skills, through: :user_skills, dependent: :destroy
+  has_many :user_skills
+
   has_one :profile, dependent: :destroy
+  
   
 
 

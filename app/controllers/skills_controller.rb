@@ -1,4 +1,4 @@
-class SkillController < ApplicationController
+class SkillsController < ApplicationController
 
   def new
     @skill = Skill.new
@@ -13,9 +13,12 @@ class SkillController < ApplicationController
   end
 
   def create
+    puts "PUTS PAR: #{params}"
     @skill = Skill.create(skill_params)
-    current_user.profile = @profile
-    redirect_to profile_path(current_user)
+    @user = User.find(params[:user_id])
+    @user.skills.push @skill
+    # current_user.profile = @profile
+    redirect_to new_user_profile_path(current_user)
   end
 
   def update
@@ -34,6 +37,6 @@ class SkillController < ApplicationController
   end
 
   def skill_params
-    params.require(:skills).permit(:skill).merge(user_id: current_user.id)
+    params.require(:skill).permit(:skill)
   end
 end

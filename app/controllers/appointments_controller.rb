@@ -4,6 +4,10 @@ class AppointmentsController < ApplicationController
   # GET /appointments
   
   def index
+
+   if current_user && !current_user.profile
+         redirect_to new_user_profile_path(current_user.id)
+   end
     @appointments = Appointment.all
 
     
@@ -36,29 +40,20 @@ class AppointmentsController < ApplicationController
     puts @appointment.errors.full_messages
     redirect_to appointments_path
 
-   # respond_to do |format|
-   #    if @appointment.save
-   #      format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
-   #      format.json { render :show, status: :created, location: @appointment }
-   #    else
-   #      format.html { render :new }
-   #      format.json { render json: @appointment.errors, status: :unprocessable_entity }
-   #    end
-   #  end
+ 
   end
 
   # PATCH/PUT /appointments/1
   
   def update
-    respond_to do |format|
-      if @appointment.update(appointment_params)
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @appointment }
-      else
-        format.html { render :edit }
-        format.json { render json: @appointment.errors, status: :unprocessable_entity }
-      end
+    @appointment = Appointment.find(params[:id])
+
+    if @appointment.update_attributes(params[:appointment])
+      redirect_to appointments_path, :notice => "Your appointment was successfully updated"
+    else
+      render 'edit'
     end
+    
   end
 
   # DELETE /appointments/1

@@ -1,18 +1,25 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"} do 
-       resources :skills
-      resources :unavailability
 
-  end
-  root 'appointments#index'
+ devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
-  resources :appointments 
-  resources :availabilities
-  
-  resources :profiles 
-  
 
-  
+resources :users do
+   resources :profiles
+   resources :skills
+
+   resources :unavailability
+
+ end
+
+ root 'appointments#index'
+
+ resources :appointments 
+ resources :availabilities
+
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
