@@ -1,8 +1,18 @@
-<%= form_for @appointment, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+
+<%= form_for @appointment, html: {class: "nifty_form", id: "basicExample"} do |f| %>
   <% f.label :start %>
-  <%= f.datetime_field :start %>
+  Start date: 
+  <%= f.datetime_field :start, class: "date start" %>
+  <% f.label :starttime %>
+  <%= f.text_field :starttime, class: "time start" %>
+  <br>
   <% f.label :end %>
-  <%= f.datetime_field :end %>
+  End date & time:
+  <%= f.datetime_field :end, class: "date end"  %>
+   <% f.label :endtime %>
+  <%= f.text_field :endtime, class: "time end" %>
+
  
   <%= f.submit "Update" %>
 <% end %>
+

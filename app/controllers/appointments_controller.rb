@@ -48,7 +48,7 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
 
-    if @appointment.update_attributes(params[:appointment])
+    if @appointment.update_attributes(appointment_params)
       redirect_to appointments_path, :notice => "Your appointment was successfully updated"
     else
       render 'edit'
