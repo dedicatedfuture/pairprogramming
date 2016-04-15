@@ -38,6 +38,7 @@ class AppointmentsController < ApplicationController
 
     @appointment = Appointment.create(appointment_params)
     puts @appointment.errors.full_messages
+    puts "params #{params}"
     redirect_to appointments_path
 
  
@@ -74,12 +75,12 @@ class AppointmentsController < ApplicationController
     def appointment_params
      
       params["appointment"]["start"] =  DateTime.strptime(params["appointment"]['start'], "%m/%d/%Y").to_s
-      params["appointment"]["starttime"] = DateTime.strptime(params["appointment"]['starttime'], "%I:%M").to_s
+      params["appointment"]["starttime"] = DateTime.strptime(params["appointment"]['starttime'], "%I:%M%p").to_s
       params["appointment"]["end"] =  DateTime.strptime(params["appointment"]['end'], "%m/%d/%Y").to_s
-      params["appointment"]["endtime"] = DateTime.strptime(params["appointment"]['endtime'], "%I:%M").to_s
+      params["appointment"]["endtime"] = DateTime.strptime(params["appointment"]['endtime'], "%I:%M%p").to_s
       # DateTime.new(total)
      
-      params.require(:appointment).permit(:start, :end, :startime, :endtime)
+      params.require(:appointment).permit(:start, :starttime, :end, :endtime)
     end
 end
 

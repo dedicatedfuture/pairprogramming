@@ -30,8 +30,8 @@
       <%= f.submit "Submit Skills", id: "skill_add" %>
 
    <% end %>
-
+<ul>
    <% current_user.skills.each do |s|%>
-      <%= content_tag :h2, s.skill %>
-        <%= link_to "Delete", user_skill_path(current_user, s), data: {confirm:  "Are you sure you want to delete?"}, :method => :delete %><br/>
+    <li>  <%=  s.skill %>
+        <%= link_to "Delete", user_skill_path(current_user, s), data: {confirm:  "Are you sure you want to delete?"}, :method => :delete %></li>
    <% end%>

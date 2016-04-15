@@ -241,7 +241,7 @@ DEPENDENCIES
   google-api-client (~> 0.9)
   jbuilder (~> 2.0)
   jquery-rails
-  jquery-turbolinks (~> 0.2.1)
+  jquery-turbolinks
   jquery-ui-rails
   omniauth
   omniauth-google-oauth2
