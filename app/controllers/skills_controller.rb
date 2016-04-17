@@ -1,6 +1,7 @@
 class SkillsController < ApplicationController
 
   def new
+
     @skill = Skill.new
   end
 
@@ -19,6 +20,7 @@ class SkillsController < ApplicationController
     @user.skills.push @skill
     # current_user.profile = @profile
     redirect_to new_user_profile_path(current_user)
+
   end
 
   def update
@@ -29,6 +31,13 @@ class SkillsController < ApplicationController
       render :new, alert: "There was a problem."
     end
   end
+
+  def destroy
+     @skill = Skill.find(params[:id])
+    @skill.destroy
+    redirect_to edit_user_profile_path
+  end
+
 
   private
 

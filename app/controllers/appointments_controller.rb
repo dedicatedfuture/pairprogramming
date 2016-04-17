@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
    end
     @appointments = Appointment.all
 
-    
+   
     
   end
 
@@ -18,6 +18,8 @@ class AppointmentsController < ApplicationController
   
   def show
     @appointment = Appointment.find(params[:id])
+    @appointments = Appointment.all
+    render json: @appointments 
   end
 
   # GET /appointments/new
@@ -34,10 +36,11 @@ class AppointmentsController < ApplicationController
   # POST /appointments
  
   def create
-  
+  puts "P ARE: #{params}"
 
     @appointment = Appointment.create(appointment_params)
     puts @appointment.errors.full_messages
+    puts "params #{params}"
     redirect_to appointments_path
 
  
@@ -48,7 +51,7 @@ class AppointmentsController < ApplicationController
   def update
     @appointment = Appointment.find(params[:id])
 
-    if @appointment.update_attributes(params[:appointment])
+    if @appointment.update_attributes(appointment_params)
       redirect_to appointments_path, :notice => "Your appointment was successfully updated"
     else
       render 'edit'
@@ -72,9 +75,17 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params["appointment"]["start"] =  DateTime.strptime(params["appointment"]['start'], "%m/%d/%Y %I:%M").to_s
-      params["appointment"]["end"] =  DateTime.strptime(params["appointment"]['end'], "%m/%d/%Y %I:%M").to_s
-      params.require(:appointment).permit(:start, :end)
+      starttotal = params["appointment"]['start'] + params["appointment"]['starttime']
+      endtotal = params["appointment"]['end'] + params["appointment"]['endtime']
+     
+     
+      params["appointment"]["start"] =  DateTime.strptime(starttotal, "%m/%d/%Y%I:%M%p").to_s
+      params["appointment"]["starttime"] = DateTime.strptime(params["appointment"]['starttime'], "%I:%M%p").to_s
+      params["appointment"]["end"] =  DateTime.strptime(endtotal, "%m/%d/%Y%I:%M%p").to_s
+      params["appointment"]["endtime"] = DateTime.strptime(params["appointment"]['endtime'], "%I:%M%p").to_s
+      # DateTime.new(total)
+     
+      params.require(:appointment).permit(:start, :starttime, :end, :endtime)
     end
 end
 

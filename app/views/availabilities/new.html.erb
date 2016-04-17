@@ -1,14 +1,14 @@
 <%= form_for @availability, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-   <% f.label :day %>
+   <% f.label :dow %>
    Regularly available day of the week:
- 	<%= f.select :day, [['Sunday', 0],['Monday', 1], ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6]]%><br>
+ 	<%= f.select :dow, [['Sunday', 0],['Monday', 1], ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6]]%><br>
 
-  <% f.label :starttime %>
+  <% f.label :start %>
   Start time:
-  <%= f.time_field :starttime %><br>
-  <% f.label :endtime %>
+  <%= f.time_field :start %><br>
+  <% f.label :end %>
   End time:
-  <%= f.time_field :endtime %>
+  <%= f.time_field :end %>
  
   <%= f.submit "Create" %>
 <% end %>

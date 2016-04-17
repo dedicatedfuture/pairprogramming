@@ -11,22 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414190855) do
+ActiveRecord::Schema.define(version: 20160417145210) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "start"
     t.datetime "end"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time     "starttime"
+    t.time     "endtime"
   end
 
   create_table "availabilities", force: :cascade do |t|
-    t.integer  "day"
-    t.time     "starttime"
-    t.time     "endtime"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.time    "start"
+    t.time    "end"
+    t.integer "dow"
   end
 
   create_table "homes", force: :cascade do |t|
@@ -50,6 +49,12 @@ ActiveRecord::Schema.define(version: 20160414190855) do
     t.string   "skill"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "table_availabilities", force: :cascade do |t|
+    t.time   "start"
+    t.time   "end"
+    t.string "dow",   default: "--- []\n"
   end
 
   create_table "unavailables", force: :cascade do |t|

@@ -1,8 +1,11 @@
 class ProfilesController < ApplicationController
 
   def new
+
     @profile = Profile.new
+    
     @skill = Skill.new
+    
   end
 
   def show
@@ -11,7 +14,9 @@ class ProfilesController < ApplicationController
 
   def edit
     @skill = Skill.new
+
     @profile = get_profile
+
   end
 
   def create

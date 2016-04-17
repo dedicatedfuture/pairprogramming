@@ -21,7 +21,7 @@
 
 <div id="skills_wrapper">
    <h2>What programming skills are you familiar with?</h2>
-  <%= form_for [current_user, @skill], url: {controller: :skills, action: "create"}, remote: true, :id => 'skillform' do |f| %>
+  <%= form_for [current_user, @skill],remote: :true, :id => 'skillform' do |f| %>
       <%= f.label(:skill, "What Skills Do You Have?") %><br>
       <%= f.text_field :skill %>
    <button id="add_more_button" class="add_field_button">Add More Skills</button>
@@ -30,7 +30,8 @@
       <%= f.submit "Submit Skills", id: "skill_add" %>
 
    <% end %>
-
+<ul>
    <% current_user.skills.each do |s|%>
-   <%= content_tag :h2, s.skill %> <br/>
+    <li>  <%=  s.skill %>
+        <%= link_to "Delete", user_skill_path(current_user, s), data: {confirm:  "Are you sure you want to delete?"}, :method => :delete %></li>
    <% end%>
