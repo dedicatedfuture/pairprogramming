@@ -1,0 +1,18 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//sets the comments/ add comment fields to not showing to be toggled w buttons
+.comment {
+	display: none;
+	
+	font-size: 1.4vw;
+	width: 60%;
+	padding: 1%;
+	margin-top: 1%;
+}
+
+.comment-field {
+	margin-top: 2%;
+	display: none;
+}

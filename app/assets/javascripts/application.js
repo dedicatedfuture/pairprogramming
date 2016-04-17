@@ -19,6 +19,8 @@
 
 $(document).ready(function() {
 
+
+    //datepicker and timepicker info
  $('#basicExample .time').timepicker({
     'scrollDefault': 'now',
         'showDuration': true,
@@ -38,4 +40,29 @@ $(document).ready(function() {
     format: 'mm/dd/yyyy',
     startDate: '-3d'
 	});
+
+
+    //logic to hide/show comment fields
+  
+    
+    $(".comment-button").click(function(e){
+        e.preventDefault();
+        var $thisPost = $(this).closest('.whole-post');
+        $thisPost.find(".comment-field").toggle();
+    });
+
+    $(".comment-view").click(function(e){
+        e.preventDefault();
+        var $thisPost = $(this).closest('.whole-post');
+        $thisPost.find(".comment").toggle();
+    });
+
+
+
+
+
+
+
+
+
 });
