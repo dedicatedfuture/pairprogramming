@@ -20,6 +20,7 @@
 $(document).ready(function() {
 
  $('#basicExample .time').timepicker({
+    'scrollDefault': 'now',
         'showDuration': true,
         'timeFormat': 'g:ia'
     });

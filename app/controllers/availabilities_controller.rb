@@ -21,6 +21,8 @@ class AvailabilitiesController < ApplicationController
 	def show
     
     @availability = Availability.find(params[:id])
+    @availabilities = Availability.all
+    render json: @availabilities 
 
 	end
 
@@ -60,7 +62,8 @@ class AvailabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def availability_params
-      params.require(:availability).permit(:day, :starttime, :endtime, :user_id)
+      params[:dow] = [params[:dow]]
+      params.require(:availability).permit(:dow, :start, :end, :user_id)
     end
 
 
