@@ -85,7 +85,7 @@ class AppointmentsController < ApplicationController
       params["appointment"]["endtime"] = DateTime.strptime(params["appointment"]['endtime'], "%I:%M%p").to_s
       # DateTime.new(total)
      
-      params.require(:appointment).permit(:start, :starttime, :end, :endtime)
+      params.require(:appointment).permit(:title, :start, :starttime, :end, :endtime)
     end
 end
 

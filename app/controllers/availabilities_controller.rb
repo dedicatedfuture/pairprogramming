@@ -22,7 +22,14 @@ class AvailabilitiesController < ApplicationController
     
     @availability = Availability.find(params[:id])
     @availabilities = Availability.all
-    render json: @availabilities 
+
+    json.array!(@availabilities) do |avail|
+      json.extract! avail, :id, :start, :end, :dow
+      json.dow [avail.dow]
+      json.url event_url(avail, format: :html)
+
+    end
+
 
 	end
 

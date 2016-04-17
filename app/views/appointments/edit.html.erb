@@ -2,15 +2,15 @@
 <%= form_for @appointment, html: {class: "nifty_form", id: "basicExample"} do |f| %>
   <% f.label :start %>
   Start date: 
-  <%= f.datetime_field :start, class: "date start" %>
+  <%= f.datetime_field :start, :value => @appointment.start.strftime("%m/%d/%Y") ,class: "date start" %>
   <% f.label :starttime %>
-  <%= f.text_field :starttime, class: "time start" %>
+  <%= f.text_field :starttime, :value => @appointment.starttime.strftime("%I:%M%p"),class: "time start" %>
   <br>
   <% f.label :end %>
   End date & time:
-  <%= f.datetime_field :end, class: "date end"  %>
+  <%= f.datetime_field :end,:value => @appointment.end.strftime("%m/%d/%Y") , class: "date end"  %>
    <% f.label :endtime %>
-  <%= f.text_field :endtime, class: "time end" %>
+  <%= f.text_field :endtime, :value => @appointment.endtime.strftime("%I:%M%p"), class: "time end" %>
 
  
   <%= f.submit "Update" %>

@@ -1,7 +1,7 @@
 
 <ul>
 	<% @appointments.each do |appt| %>
-		<li>Appointment starts at: <%= appt.start.strftime("%b %d %Y")%>   |  <%= appt.starttime.strftime("%I:%M%p") %> and ends at: <%= appt.end.strftime("%b %d %Y") %> |      <%= appt.endtime.strftime("%I:%M%p") %> 
+		<li><%= appt.title %> Appointment starts at: <%= appt.start.strftime("%b %d %Y")%>   |  <%= appt.starttime.strftime("%I:%M%p") %> and ends at: <%= appt.end.strftime("%b %d %Y") %> |      <%= appt.endtime.strftime("%I:%M%p") %> 
 		<%= link_to "Edit", edit_appointment_path(appt) %> 
 		|
 		 <%= link_to "Delete", appointment_path(appt), data: {confirm:  "Are you sure you want to delete?"}, :method => :delete %></li>
