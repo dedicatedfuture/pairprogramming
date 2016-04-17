@@ -1,5 +1,7 @@
 
 <%= form_for @appointment, url: {action: "create"}, html: {class: "nifty_form", id: "basicExample"} do |f| %>
+<% f.label :title %>
+Title: <%= f.text_field :title %>
   <% f.label :start %>
   Start date: 
   <%= f.datetime_field :start, class: "date start" %>

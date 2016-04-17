@@ -6,17 +6,18 @@ $(document).ready(function() {
      $('#calendar').fullCalendar({
      		eventSources: [
  		{
- 			url: '/appointments/22'
+ 			url: '/appointments/28'
  		}
  		
 	],
      	    events: [
         {
             title  : 'Availability',
-            url: '/availabilities/1',
-         	
+            // url: '/availabilities/2',
+            start: '10:00',
+            end: '11:00',
             color: 'green',
-           
+            dow: [4]
         } 
     ]
 
