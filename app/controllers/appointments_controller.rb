@@ -9,6 +9,7 @@ class AppointmentsController < ApplicationController
          redirect_to new_user_profile_path(current_user.id)
    end
     @appointments = Appointment.all
+    @posts = Post.all 
 
    
     

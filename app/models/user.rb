@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   has_many :user_skills
 
   has_one :profile, dependent: :destroy
+
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   
 
