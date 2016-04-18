@@ -7,6 +7,9 @@ class PostsController < ApplicationController
     @posts = Post.all
     @posts_new = Post.new
     @users = User.all
+    if current_user
+      @profile = current_user.profile
+    end
   end
 
   # GET /posts/1

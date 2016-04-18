@@ -1,0 +1,18 @@
+
+  <h2><%= link_to profile.fname + "'s Profile", edit_user_profile_path(current_user.profile.id, current_user.id)  %></h2>
+
+ 
+
+   <%= button_to 'Edit Profile', edit_user_profile_path(current_user.profile.id, current_user.id), method: :get, :class => "form_button" %><br>
+  <h2><%= profile.fname %>'s Skills</h2>
+
+  <ol>
+  <% @profile.user.skills.each do |skill| %>
+    <li class= "userskills"> <%= skill.skill %></li>
+  <% end %>
+  </ol>
+<%# Insert links to recipes here -%>
+
+<%= button_to "Cancel my account", "/users/#{current_user.id}/delete", method: :delete, :class => "form_button" %>
+
+<div id="calendar"></div>

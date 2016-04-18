@@ -1,3 +1,10 @@
+<div class="wholepagewrapper">
+<div class="profilewrapper">  
+  <%= render partial: "profiles/show", locals: { profile: @profile } %>
+</div>
+
+
+<div class="postswrapper">
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Posts</h1>
@@ -89,4 +96,6 @@
       <% end %>
   </ol>
   </div>
+</div>
+</div>
 </div>
