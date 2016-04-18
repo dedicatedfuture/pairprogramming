@@ -3,18 +3,34 @@ $(document).ready(function() {
     // page is now ready, initialize the calendar...
 
    
-     $('#calendar').fullCalendar({
+     $('#mycalendar').fullCalendar({
      		eventSources: 
             [
          		{
-         			url: '/appointments/36'
+         			url: '/appointments/currentuserjson' 
          		}, 
                 {
                     title  : 'Availability',
-                    url: '/availabilities',
+                    url: '/availabilities/currentuserjson',
                     color: 'green'
                 }
         	]
+     
+        // put your options and callbacks here
+    })
+
+     $('#otherusercalendar').fullCalendar({
+            eventSources: 
+            [
+                {
+                    url: '/appointments/otheruserjson/' + $('.contentwrapper').data('user-id')
+                }, 
+                {
+                    title  : 'Availability',
+                    url: '/availabilities/otheruserjson/' + $('.contentwrapper').data('user-id'),
+                    color: 'green'
+                }
+            ]
      
         // put your options and callbacks here
     })

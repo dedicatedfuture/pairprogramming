@@ -9,8 +9,17 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @currentprofile = get_profile
     @profile = Profile.where(user_id: params[:id]).first
+    @user = @profile.user
+    
+
+    @profile
+    
+
   end
+
+
 
   def edit
     @skill = Skill.new
@@ -33,6 +42,8 @@ class ProfilesController < ApplicationController
       render :new, alert: "There was a problem."
     end
   end
+
+ 
 
   private
 
