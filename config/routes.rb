@@ -14,7 +14,7 @@ resources :users do
 
  end
 
- root 'appointments#index'
+ root 'posts#index'
 
  resources :appointments 
  resources :availabilities

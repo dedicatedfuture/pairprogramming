@@ -1,3 +1,18 @@
 // Place all the styles related to the profile controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.wholepagewrapper{
+	padding-left: 3%;
+    padding-right: 8%;
+    display: block;
+    width: 100%;
+    display: flex;
+}
+
+.profilewrapper {
+	max-width: 30%;
+
+}
+.postswrapper{
+	margin-left: 20px;
+}
