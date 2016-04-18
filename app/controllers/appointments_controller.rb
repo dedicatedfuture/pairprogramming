@@ -8,9 +8,12 @@ class AppointmentsController < ApplicationController
    if current_user && !current_user.profile
          redirect_to new_user_profile_path(current_user.id)
    end
-    @appointments = Appointment.all
-    @posts = Post.all 
 
+   
+    @posts = Post.all 
+     @appointments = current_user.appointments
+    
+   
    
     
   end
@@ -19,8 +22,9 @@ class AppointmentsController < ApplicationController
   
   def show
     @appointment = Appointment.find(params[:id])
-    @appointments = Appointment.all
-    render json: @appointments 
+
+    @appointments = current_user.appointments
+     render json: @appointments 
   end
 
   # GET /appointments/new
@@ -42,6 +46,10 @@ class AppointmentsController < ApplicationController
     # current_user.appointments.push or UsersAppointments.create. TWO OF THESE
 
     @appointment = Appointment.create(appointment_params)
+
+    @user = current_user
+    @user.appointments.push @appointment
+
     puts @appointment.errors.full_messages
     puts "params #{params}"
     redirect_to appointments_path

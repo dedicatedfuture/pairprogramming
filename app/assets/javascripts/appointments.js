@@ -7,7 +7,7 @@ $(document).ready(function() {
      		eventSources: 
             [
          		{
-         			url: '/appointments/28'
+         			url: '/appointments/36'
          		}, 
                 {
                     title  : 'Availability',
