@@ -1,7 +1,7 @@
 class AvailabilitiesController < ApplicationController
 
 	def index
-		@availabilities = Availability.all
+		@availabilities = current_user.availabilities
 
     #filter out availability from appts
     
