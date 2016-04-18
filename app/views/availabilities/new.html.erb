@@ -1,4 +1,6 @@
 <%= form_for @availability, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+   
    <% f.label :dow %>
    Regularly available day of the week:
  	<%= f.select :dow, [['Sunday', 0],['Monday', 1], ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6]]%><br>

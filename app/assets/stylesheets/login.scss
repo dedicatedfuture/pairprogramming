@@ -1,15 +1,51 @@
+@font-face{
+	font-family: "space";
+	src: url('kenney-space.regular.ttf') format("truetype");
 
-
-.wrapper {
-	background-image: url('http://pairprogrammingisfun.com/images/header.jpg');
-	background-repeat: no-repeat;
-	background-position: center;
-	color: white;
-	height: 700px;
-	width: 100%;
+}
+body{
+	background-color: black;
 }
 
-.closewrapper{
-	padding-left: 50%;
+.wrapper {
+	background-image: url('http://codingbasics.net/wp-content/uploads/2014/04/computer-programming.jpeg');
+	background-repeat: no-repeat;
+	background-position: center;
+	color: lime;
+	height: 700px;
+	width: 100%;
+	text-align: center;
+	
+.front_title{
+	padding-top: 50px;
+	color: lime;
+	font-weight: bold;
+	font-family: "space";
+}
 
+
+.closewrapper{
+	
+	font-family: "space";
+	width: 30%;
+	margin: auto;
+	border: 5px black solid;
+	background-color: black;
+	padding: 10px 5px 10px 5px;
+	a{
+		text-decoration: none;
+
+	}
+
+}
+
+}
+
+.about{
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	.aboutboxes{
+		flex-basis: auto;
+	}
 }

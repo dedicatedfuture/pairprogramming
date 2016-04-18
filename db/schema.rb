@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417190903) do
+ActiveRecord::Schema.define(version: 20160418151405) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "start"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160417190903) do
     t.time    "start"
     t.time    "end"
     t.integer "dow"
+    t.integer "user_id"
   end
 
   create_table "comments", force: :cascade do |t|

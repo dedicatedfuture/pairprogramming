@@ -2,6 +2,18 @@ class AvailabilitiesController < ApplicationController
 
 	def index
 		@availabilities = Availability.all
+
+    #filter out availability from appts
+    
+    @avail_json = []
+    @availabilities.as_json.each do |avail|
+      avail["dow"] = [avail["dow"]]
+      @avail_json.push avail
+    end
+
+    render json: @avail_json
+
+
 	end
 
 	def create
@@ -9,8 +21,8 @@ class AvailabilitiesController < ApplicationController
 
     respond_to do |format|
       if @availability.save
-        format.html { redirect_to @availability, notice: 'Availability was successfully created.' }
-        format.json { render :show, status: :created, location: @availability }
+        format.html { redirect_to root_path, notice: 'Availability was successfully created.' }
+        format.json { render :index, status: :created, location: @availability }
       else
         format.html { render :new }
         format.json { render json: @availability.errors, status: :unprocessable_entity }
@@ -23,12 +35,7 @@ class AvailabilitiesController < ApplicationController
     @availability = Availability.find(params[:id])
     @availabilities = Availability.all
 
-    json.array!(@availabilities) do |avail|
-      json.extract! avail, :id, :start, :end, :dow
-      json.dow [avail.dow]
-      json.url event_url(avail, format: :html)
-
-    end
+    
 
 
 	end
@@ -69,7 +76,7 @@ class AvailabilitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def availability_params
-      params[:dow] = [params[:dow]]
+      
       params.require(:availability).permit(:dow, :start, :end, :user_id)
     end
 
