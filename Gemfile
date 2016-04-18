@@ -30,6 +30,7 @@ gem 'jquery-ui-rails'
 gem 'pry'
 gem 'pry-byebug'
 gem 'jquery-turbolinks'
+gem 'font-awesome-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -39,6 +39,8 @@ class AppointmentsController < ApplicationController
   def create
   puts "P ARE: #{params}"
 
+    # current_user.appointments.push or UsersAppointments.create. TWO OF THESE
+
     @appointment = Appointment.create(appointment_params)
     puts @appointment.errors.full_messages
     puts "params #{params}"
