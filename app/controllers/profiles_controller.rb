@@ -12,17 +12,14 @@ class ProfilesController < ApplicationController
     @currentprofile = get_profile
     @profile = Profile.where(user_id: params[:id]).first
     @user = @profile.user
-    # otheruserjson(@user)
+    
 
     @profile
     
 
   end
 
-  def otheruserjson(user)
-      @appointments = user.appointments
-    render json: @appointments 
-  end
+
 
   def edit
     @skill = Skill.new

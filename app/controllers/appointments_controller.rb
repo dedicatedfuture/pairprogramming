@@ -103,14 +103,19 @@ class AppointmentsController < ApplicationController
       starttotal = params["appointment"]['start'] + params["appointment"]['starttime']
       endtotal = params["appointment"]['end'] + params["appointment"]['endtime']
      
+
      
       params["appointment"]["start"] =  DateTime.strptime(starttotal, "%m/%d/%Y%I:%M%p").to_s
       params["appointment"]["starttime"] = DateTime.strptime(params["appointment"]['starttime'], "%I:%M%p").to_s
       params["appointment"]["end"] =  DateTime.strptime(endtotal, "%m/%d/%Y%I:%M%p").to_s
       params["appointment"]["endtime"] = DateTime.strptime(params["appointment"]['endtime'], "%I:%M%p").to_s
       # DateTime.new(total)
+
+      
      
-      params.require(:appointment).permit(:title, :start, :starttime, :end, :endtime)
+        params.require(:appointment).permit(:title, :start, :starttime, :end, :endtime)
+
+      
     end
 end
 
