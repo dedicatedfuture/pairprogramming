@@ -9,7 +9,19 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @currentprofile = get_profile
     @profile = Profile.where(user_id: params[:id]).first
+    @user = @profile.user
+    # otheruserjson(@user)
+
+    @profile
+    
+
+  end
+
+  def otheruserjson(user)
+      @appointments = user.appointments
+    render json: @appointments 
   end
 
   def edit
@@ -33,6 +45,8 @@ class ProfilesController < ApplicationController
       render :new, alert: "There was a problem."
     end
   end
+
+ 
 
   private
 

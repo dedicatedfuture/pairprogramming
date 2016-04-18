@@ -1,0 +1,20 @@
+<div class="wholepagewrapper">
+	<div class="profilewrapper">  
+	  <%= render partial: "profiles/show", locals: { profile: @currentprofile } %>
+	</div>
+
+	<div class="contentwrapper" data-user-id="<%= @profile.user.id %>">
+		<h1><%= @profile.fname %></h1>
+		
+		<ul>
+		<% @profile.user.skills.each do |skill| %>
+			<li><%= skill.skill %></li>
+		<% end %>
+
+
+		<div id="otherusercalendar"></div>
+
+	</div>
+
+
+</div>

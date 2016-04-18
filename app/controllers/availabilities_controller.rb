@@ -2,18 +2,6 @@ class AvailabilitiesController < ApplicationController
 
 	def index
 		@availabilities = current_user.availabilities
-
-    #filter out availability from appts
-    
-    @avail_json = []
-    @availabilities.as_json.each do |avail|
-      avail["dow"] = [avail["dow"]]
-      @avail_json.push avail
-    end
-
-    render json: @avail_json
-
-
 	end
 
 	def create
@@ -67,14 +55,45 @@ class AvailabilitiesController < ApplicationController
     @availability = Availability.new
   end
   
+  def currentuserjson
+
+    @availabilities = current_user.availabilities
+
+    #filter out availability from appts
+    
+    @avail_json = []
+    @availabilities.as_json.each do |avail|
+      avail["dow"] = [avail["dow"]]
+      @avail_json.push avail
+    end
+
+    render json: @avail_json
+
+  end  
+
+  def otheruserjson
+
+    @availabilities = User.find(params[:user_id]).availabilities
+    # @availabilities = current_user.availabilities
+    #filter out availability from appts
+    
+    @avail_json = []
+    @availabilities.as_json.each do |avail|
+      avail["dow"] = [avail["dow"]]
+      @avail_json.push avail
+    end
+
+    render json: @avail_json
+
+  end
+
+
 
     private
-    # Use callbacks to share common setup or constraints between actions.
     def set_availability
       @availability = Availability.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def availability_params
       
       params.require(:availability).permit(:dow, :start, :end, :user_id)

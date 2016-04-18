@@ -11,8 +11,7 @@ class AppointmentsController < ApplicationController
 
    
     @posts = Post.all 
-     @appointments = current_user.appointments
-    
+   
    
    
     
@@ -24,8 +23,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
 
     @appointments = current_user.appointments
-     render json: @appointments 
-  end
+       end
 
   # GET /appointments/new
   def new
@@ -77,6 +75,22 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     redirect_to appointments_path
   end
+
+  def currentuserjson
+      @appointments = current_user.appointments
+    render json: @appointments 
+  end
+
+
+   def otheruserjson
+    puts params
+      @appointments = User.find(params[:user_id]).appointments
+    render json: @appointments 
+  end
+
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
