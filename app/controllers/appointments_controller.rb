@@ -5,9 +5,7 @@ class AppointmentsController < ApplicationController
   
   def index
 
-   if current_user && !current_user.profile
-         redirect_to new_user_profile_path(current_user.id)
-   end
+  
 
    
     @posts = Post.all 
