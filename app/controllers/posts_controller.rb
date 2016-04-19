@@ -10,6 +10,15 @@ class PostsController < ApplicationController
      if current_user && !current_user.profile
          redirect_to new_user_profile_path(current_user.id)
    end
+
+
+   if params[:search]
+       @userreturn = User.joins(:skills).where("skills.skill = ?", params[:search])
+
+     else
+       @skills = Skill.all.limit(10).order('created_at DESC')
+    end
+    @skills = Skill.search(params[:search])
     @post = Post.new
     @posts = Post.all
     @posts_new = Post.new
