@@ -10,6 +10,10 @@ $(document).ready(function() {
          			url: '/appointments/currentuserjson' 
          		}, 
                 {
+                    url: '/appointments/currentusermenteejson',
+                    color: 'yellow'
+                },
+                {
                     title  : 'Availability',
                     url: '/availabilities/currentuserjson',
                     color: 'green'
@@ -25,6 +29,10 @@ $(document).ready(function() {
                 {
                     url: '/appointments/otheruserjson/' + $('.contentwrapper').data('user-id')
                 }, 
+                {
+                    url: '/appointments/otherusermenteejson/' + $('.contentwrapper').data('user-id'),
+                    color: 'yellow'
+                },
                 {
                     title  : 'Availability',
                     url: '/availabilities/otheruserjson/' + $('.contentwrapper').data('user-id'),

@@ -4,20 +4,19 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :active_appointments, class_name:  "Appointment",
+  has_many :menteeing_appointments, class_name:  "Appointment",
                                   foreign_key: "mentee_id",
                                   dependent:   :destroy
   
-  has_many :passive_appointments, class_name:  "Appointment",
+  has_many :mentoring_appointments, class_name:  "Appointment",
                                   foreign_key: "mentor_id",
                                   dependent:   :destroy
 
-
   #Appointments where user is the mentee                              
-  has_many :mentee_appointments, through: :active_appointments, source: :mentor
+  has_many :mentees, through: :menteeing_appointments, source: :mentor
 
   #Appointments where user is the mentor
-  has_many :mentor_appointments, through: :passive_appointments, source: :mentee
+  has_many :mentors, through: :mentoring_appointments, source: :mentee
 
   has_many :skills, through: :user_skills, dependent: :destroy
   has_many :user_skills
