@@ -1,0 +1,23 @@
+<%= form_tag root_path, :method => 'get' do %>
+	<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search for users with skills", :name => nil %>
+<% end %>
+
+<% if @userreturn.present? %>
+<ul>
+	<% @userreturn.each do |u| %>
+		<li> <%= link_to u.profile.fname, user_profile_path(u.id, u.id) %> </li>
+	<% end %>
+</ul>
+<% end %>
+<% if @skills.present? %>
+	
+ <ul>
+	<% @skills.each do |s| %>
+ 
+  		<li><%= s.skill  %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no skills containing the term(s) <%= params[:search] %>.</p>
+<% end %>

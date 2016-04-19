@@ -15,8 +15,10 @@ class SkillsController < ApplicationController
 
   def create
     puts "PUTS PAR: #{params}"
-    @skill = Skill.create(skill_params)
+    @skill = Skill.find_or_create_by(skill: skill_params)
     @user = User.find(params[:user_id])
+
+
     @user.skills.push @skill
     # current_user.profile = @profile
     redirect_to new_user_profile_path(current_user)
