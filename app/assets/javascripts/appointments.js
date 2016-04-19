@@ -4,6 +4,8 @@ $(document).ready(function() {
 
    
      $('#mycalendar').fullCalendar({
+      
+   
      		eventSources: 
             [
          		{
@@ -11,7 +13,8 @@ $(document).ready(function() {
          		}, 
                 {
                     url: '/appointments/currentusermenteejson',
-                    color: 'yellow'
+                    color: 'yellow',
+                    textColor: 'black'
                 },
                 {
                     title  : 'Availability',
@@ -24,6 +27,18 @@ $(document).ready(function() {
     })
 
      $('#otherusercalendar').fullCalendar({
+
+         dayClick: function(date, jsEvent, view) {
+
+                $('#modalinfoouter').show();
+                $('#modalinfo').css("display", "block");
+                var datey = new Date(date)
+                $('#appointment_start').val((datey.getMonth() + 1) + '/' + (datey.getDate() + 1) + '/' +  datey.getFullYear());
+                $('#appointment_end').val((datey.getMonth() + 1) + '/' + (datey.getDate() + 1)+ '/' +  datey.getFullYear());
+              
+               
+
+            },
             eventSources: 
             [
                 {
@@ -31,7 +46,8 @@ $(document).ready(function() {
                 }, 
                 {
                     url: '/appointments/otherusermenteejson/' + $('.contentwrapper').data('user-id'),
-                    color: 'yellow'
+                    color: 'yellow',
+                    textColor: 'black'
                 },
                 {
                     title  : 'Availability',
@@ -43,4 +59,7 @@ $(document).ready(function() {
         // put your options and callbacks here
     })
 
+     $('.close').click(function(){
+      $(this).parent().parent().css("display", "none");
+   })
 });

@@ -7,7 +7,10 @@ class PostsController < ApplicationController
   def index
     puts 'path?'
     puts user_profile_path(1, 1)
-
+     if current_user && !current_user.profile
+         redirect_to new_user_profile_path(current_user.id)
+   end
+    @post = Post.new
     @posts = Post.all
     @posts_new = Post.new
     @users = User.all
@@ -37,7 +40,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
