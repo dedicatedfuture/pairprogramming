@@ -16,3 +16,25 @@
 .contentwrapper{
 	margin-left: 20px;
 }
+
+#modalinfo{
+	display: none;
+}
+
+#modalinfoouter{
+			  z-index: 1;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              left: 0px;
+              top: 100px;
+              padding-top: 100px;
+              padding-bottom: 100px;
+              background-color: grey;
+              display: none;
+            }
+        #modalinfo{
+        	background-color: black;
+        	color: orange;
+              text-align: center;
+            }
