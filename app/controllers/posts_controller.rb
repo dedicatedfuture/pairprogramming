@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    puts 'path?'
+    puts user_profile_path(1, 1)
+
     @posts = Post.all
     @posts_new = Post.new
     @users = User.all

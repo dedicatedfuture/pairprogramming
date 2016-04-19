@@ -6,9 +6,11 @@ Rails.application.routes.draw do
  devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
 
 get 'appointments/currentuserjson' , to: 'appointments#currentuserjson'
+get 'appointments/currentusermenteejson' , to: 'appointments#currentusermenteejson'
 get 'availabilities/currentuserjson', to: 'availabilities#currentuserjson'
 
 get 'appointments/otheruserjson/:user_id' , to: 'appointments#otheruserjson'
+get 'appointments/otherusermenteejson/:user_id' , to: 'appointments#otherusermenteejson'
 get 'availabilities/otheruserjson/:user_id', to: 'availabilities#otheruserjson'
 
 resources :users do

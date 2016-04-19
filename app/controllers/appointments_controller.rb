@@ -21,6 +21,7 @@ class AppointmentsController < ApplicationController
   
   def show
     @appointment = Appointment.find(params[:id])
+     @currentprofile = get_profile
 
     @appointments = current_user.appointments
        end
@@ -45,12 +46,12 @@ class AppointmentsController < ApplicationController
 
     @appointment = Appointment.create(appointment_params)
 
-    @user = current_user
-    @user.appointments.push @appointment
+   
 
     puts @appointment.errors.full_messages
     puts "params #{params}"
-    redirect_to appointments_path
+
+    redirect_to user_profile_path(Appointment.last.mentor.id, Appointment.last.mentor.id)
 
  
   end
@@ -61,7 +62,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
 
     if @appointment.update_attributes(appointment_params)
-      redirect_to appointments_path, :notice => "Your appointment was successfully updated"
+      redirect_to root_path, :notice => "Your appointment was successfully updated"
     else
       render 'edit'
     end
@@ -73,20 +74,33 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to appointments_path
+    redirect_to root_path
   end
 
   def currentuserjson
-      @appointments = current_user.appointments
+      @appointments = current_user.mentoring_appointments
     render json: @appointments 
   end
 
 
    def otheruserjson
     puts params
-      @appointments = User.find(params[:user_id]).appointments
+      @appointments = User.find(params[:user_id]).mentoring_appointments
     render json: @appointments 
   end
+
+  def currentusermenteejson
+      @appointments = current_user.menteeing_appointments
+    render json: @appointments 
+  end
+
+
+   def otherusermenteejson
+    puts params
+      @appointments = User.find(params[:user_id]).menteeing_appointments
+    render json: @appointments 
+  end
+
 
 
 
@@ -113,7 +127,7 @@ class AppointmentsController < ApplicationController
 
       
      
-        params.require(:appointment).permit(:title, :start, :starttime, :end, :endtime)
+        params.require(:appointment).permit(:title, :start, :starttime, :end, :endtime, :mentee_id, :mentor_id)
 
       
     end

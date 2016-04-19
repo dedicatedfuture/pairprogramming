@@ -1,6 +1,7 @@
 
-<%= form_for @appointment, url: {action: "create"}, html: {class: "nifty_form", id: "basicExample"} do |f| %>
+<%= form_for @appointment, html: {class: "nifty_form", id: "basicExample"} do |f| %>
 <%= f.hidden_field :mentee_id, :value => current_user.id %>
+<%= f.hidden_field :mentor_id, :value => @profile.user.id %>
 <% f.label :title %>
 Title: <%= f.text_field :title %><br>
   <% f.label :start %>
@@ -18,4 +19,3 @@ Title: <%= f.text_field :title %><br>
  
   <%= f.submit "Create" %>
 <% end %>
-
