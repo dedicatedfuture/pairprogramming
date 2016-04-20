@@ -62,7 +62,7 @@ class AppointmentsController < ApplicationController
     u = User.find(aparams["mentor_id"])
     redirect_to user_profile_path(u, u.profile.id)
 
-    AppointmentMailer.confirmation_email(u.email).deliver
+    AppointmentMailer.confirmation_email('zerega85@gmail.com').deliver
  
   end
 
