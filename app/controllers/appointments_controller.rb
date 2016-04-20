@@ -56,13 +56,13 @@ class AppointmentsController < ApplicationController
       m.text = @content
     end
 
-    puts @appointment.errors.full_messages
-    puts "params #{params}"
+    
 
 
     u = User.find(aparams["mentor_id"])
     redirect_to user_profile_path(u, u.profile.id)
 
+    AppointmentMailer.confirmation_email(u.email).deliver
  
   end
 
