@@ -44,17 +44,17 @@ class AppointmentsController < ApplicationController
     aparams = appointment_params
     @appointment = Appointment.create(aparams)
 
-    client = SendGrid::Client.new do |c|
-       c.api_key = ENV['SENDGRID_API_KEY']
-    end   
+   #  client = SendGrid::Client.new do |c|
+   #     c.api_key = ENV['SENDGRID_API_KEY']
+   #  end   
 
-   @content = aparams
-      mail = SendGrid::Mail.new do |m|
-      m.to = 'zerega85@gmail.com'
-      m.from = 'zeregamarketing@gmail.com'
-      m.subject = "Pair up! New Appointment Request!!!"
-      m.text = @content
-    end
+   # @content = aparams
+   #    mail = SendGrid::Mail.new do |m|
+   #    m.to = 'zerega85@gmail.com'
+   #    m.from = 'zeregamarketing@gmail.com'
+   #    m.subject = "Pair up! New Appointment Request!!!"
+   #    m.text = @content
+   #  end
 
     puts @appointment.errors.full_messages
     puts "params #{params}"
@@ -62,6 +62,7 @@ class AppointmentsController < ApplicationController
 
     u = User.find(aparams["mentor_id"])
     redirect_to user_profile_path(u, u.profile.id)
+    AppointmentMailer.confirmation_email("zerega85@gmail.com").deliver
 
  
   end
