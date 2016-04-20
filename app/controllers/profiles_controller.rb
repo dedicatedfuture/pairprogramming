@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
 
   def show
     @currentprofile = get_profile
-    @profile = Profile.where(user_id: params[:id]).first
+    @profile = Profile.find(User.find(params[:id]).profile)
     @appointment = Appointment.new
 
   end

@@ -41,15 +41,27 @@ class AppointmentsController < ApplicationController
   puts "P ARE: #{params}"
 
     # current_user.appointments.push or UsersAppointments.create. TWO OF THESE
+    aparams = appointment_params
+    @appointment = Appointment.create(aparams)
 
-    @appointment = Appointment.create(appointment_params)
+    client = SendGrid::Client.new do |c|
+       c.api_key = ENV['SENDGRID_API_KEY']
+    end   
 
-   
+   @content = aparams
+      mail = SendGrid::Mail.new do |m|
+      m.to = 'zerega85@gmail.com'
+      m.from = 'zeregamarketing@gmail.com'
+      m.subject = "Pair up! New Appointment Request!!!"
+      m.text = @content
+    end
 
     puts @appointment.errors.full_messages
     puts "params #{params}"
 
-    redirect_to user_profile_path(Appointment.last.mentor.id, Appointment.last.mentor.id)
+
+    u = User.find(aparams["mentor_id"])
+    redirect_to user_profile_path(u, u.profile.id)
 
  
   end
