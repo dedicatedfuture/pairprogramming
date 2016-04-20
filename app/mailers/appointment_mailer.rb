@@ -1,4 +1,4 @@
-class AppointmentMailer ActionMailer::Base
+class AppointmentMailer < ActionMailer::Base
   default :from => 'no-reply@example.com',
           :subject => 'An email sent via SendGrid with substitutions'
 

@@ -40,11 +40,6 @@ ActiveRecord::Schema.define(version: 20160418204940) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "homes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
@@ -69,12 +64,6 @@ ActiveRecord::Schema.define(version: 20160418204940) do
     t.string   "skill"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "table_availabilities", force: :cascade do |t|
-    t.time   "start"
-    t.time   "end"
-    t.string "dow",   default: "--- []\n"
   end
 
   create_table "unavailables", force: :cascade do |t|
