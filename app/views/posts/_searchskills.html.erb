@@ -13,7 +13,7 @@
 <% if @skills.present? %>
 	
  <ul>
-	<% @skills.each do |s| %>
+	<% @skills.limit(10).each do |s| %>
  
   		<li><%= s.skill  %> </li>
     <% end %>
