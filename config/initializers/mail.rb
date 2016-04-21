@@ -11,5 +11,5 @@ ActionMailer::Base.smtp_settings = {
 
 
 SendGrid.configure do |config|
-  config.dummy_recipient = 'noreply@example.com'
+  config.dummy_recipient = 'zerega85@gmail.com'
 end

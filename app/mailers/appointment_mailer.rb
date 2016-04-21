@@ -1,10 +1,13 @@
 class AppointmentMailer < ActionMailer::Base
 
   default :from => 'no-reply@example.com',
-          :subject => 'An email sent via SendGrid with substitutions'
+          :subject => 'Pair Up! Someone wants to pair with you!'
 
-  def confirmation_email(email)
+  def confirmation_email(user, requestuser)
     category 'SendGridRocks'
-    mail :to => email
+    @user = user
+    @requestuser = requestuser
+    mail :to => user.email
   end
 end
+

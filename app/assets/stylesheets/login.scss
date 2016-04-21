@@ -105,6 +105,62 @@ body{
 		font-weight: bold;
 	}
 }
+#profilepagewrapper{
+	background-color: #5ECBFF;
+	height: 600px;
+}
 #profile_wrapper{
-	background-image: url('http://i.imgur.com/CquHkYD.gif');
+	width: 40%;
+	margin: auto;
+	h2{
+		margin-top: 0px;
+		padding-top: 30px;
+	}
+	label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;
+	}
+	input {
+	  display: inline-block;
+	  float: left;
+	}
+	.skillstitle{
+		margin-top: 40px;
+	}
+	#skill_add{
+		margin-left: 20px;
+		
+	}
+	ul li{
+			clear:both;
+
+
+		}
+		#availabilitywrapper{
+			clear:both;
+			h2{
+				margin-top: 10px;
+				
+			}
+			label{
+				display: inline-block;
+			    float: left;
+			    clear: left;
+			    width: 250px;
+			    text-align: left;
+			    	height: 25px;
+			}
+			input{
+				display: inline-block;
+				clear: left;
+				float: right;
+			}
+			submit{
+				clear: both;
+			}
+		}
+
 }

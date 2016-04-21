@@ -5,12 +5,14 @@
    Regularly available day of the week:
  	<%= f.select :dow, [['Sunday', 0],['Monday', 1], ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6]]%><br>
 
+Start time:
   <% f.label :start %>
-  Start time:
+  
   <%= f.text_field :start, class: "time" %><br>
-  <% f.label :end %>
   End time:
-  <%= f.text_field :end , class: "time"%>
+  <% f.label :end %>
+ 
+  <%= f.text_field :end , class: "time"%><br>
  
   <%= f.submit "Create" %>
 <% end %>

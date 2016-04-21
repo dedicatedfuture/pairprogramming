@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
 
   def edit
     @skill = Skill.new
-
+    @availability = Availability.new()
     @profile = get_profile
 
   end
@@ -42,6 +42,12 @@ class ProfilesController < ApplicationController
  
 
   private
+
+   def availability_params
+      
+      params.require(:availability).permit(:dow, :start, :end, :user_id)
+    end
+
 
   def get_profile
     current_user.profile

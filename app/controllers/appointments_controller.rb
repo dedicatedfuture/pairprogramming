@@ -56,14 +56,17 @@ class AppointmentsController < ApplicationController
    #    m.text = @content
    #  end
 
+    # res = client.send(mail)
+
     
 
 
     u = User.find(aparams["mentor_id"])
-    redirect_to user_profile_path(u, u.profile.id)
-    AppointmentMailer.confirmation_email("zerega85@gmail.com").deliver
+    cu = current_user
+   
+    AppointmentMailer.confirmation_email(u, cu).deliver
 
-    
+     redirect_to user_profile_path(u, u.profile.id)
  
   end
 

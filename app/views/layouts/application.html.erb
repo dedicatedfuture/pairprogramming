@@ -13,12 +13,11 @@
 
 	<% if user_signed_in? && current_user.profile %>
 		Logged in as <strong><%= current_user.email %> </strong>.
-		<%= link_to 'Edit Log In Info', edit_user_registration_path(current_user) %> |
+		|
 		<%= link_to 'Change Profile Model', edit_user_profile_path(current_user.profile.id, current_user.id) %> |
 		<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 		|
-		<%= link_to "Make a pair appointment", new_appointment_path %>|
-		<%= link_to "Set up your availability", new_availability_path %>|
+	
 		
 		
 	<% else %>
