@@ -2,16 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .wholepagewrapper{
-	padding-left: 3%;
-    padding-right: 8%;
+	  background-color: #A142E9;
+    padding: 0px 0px 0px 0px;
     display: block;
     width: 100%;
     display: flex;
 }
 
+.contentwrapper{
+  background-color: #1EEF43;
+  width: 60%;
+  padding-left: 25px;
+}
 .profilewrapper {
 	max-width: 30%;
   background-color: #5ECBFF;
+  padding-left: 10px;
 
 }
 .contentwrapper{

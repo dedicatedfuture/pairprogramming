@@ -3,7 +3,7 @@
 
      
 
-       <%= button_to 'Edit Profile', edit_user_profile_path(current_user.profile.id, current_user.id), method: :get, :class => "form_button" %><br>
+   
       <h2><%= current_user.profile.fname %>'s Appointments</h2>
 
       <ol>
@@ -33,5 +33,5 @@
       <% end %>
       </ol>
 
-    <%= button_to "Cancel my account", "/users/#{current_user.id}/delete", method: :delete, :class => "form_button" %>
+    
 </div>
