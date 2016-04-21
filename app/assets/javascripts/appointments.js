@@ -28,13 +28,14 @@ $(document).ready(function() {
 
      $('#otherusercalendar').fullCalendar({
 
-         dayClick: function(date, jsEvent, view) {
+         eventClick: function(calEvent, jsEvent, view) {
 
                 $('#modalinfoouter').show();
                 $('#modalinfo').css("display", "block");
-                var datey = new Date(date)
-                $('#appointment_start').val((datey.getMonth() + 1) + '/' + (datey.getDate() + 1) + '/' +  datey.getFullYear());
-                $('#appointment_end').val((datey.getMonth() + 1) + '/' + (datey.getDate() + 1)+ '/' +  datey.getFullYear());
+                var datey = new Date(calEvent.start);
+                var edatey = new Date(calEvent.end);
+                $('#appointment_start').val((datey.getMonth() + 1) + '/' + (datey.getDate() + 1)+ '/' +  datey.getFullYear());
+                $('#appointment_end').val((edatey.getMonth() + 1) + '/' + (edatey.getDate() + 1)+ '/' +  edatey.getFullYear());
               
                
 

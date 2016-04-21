@@ -1,7 +1,7 @@
 <div class="wholepagewrapper">
-	<div class="profilewrapper">  
+	
 	  <%= render partial: "profiles/show", locals: { profile: @currentprofile } %>
-	</div>
+	
 
 	<div class="contentwrapper" data-user-id="<%= @profile.user.id %>">
 		<h1><%= @profile.fname %></h1>
