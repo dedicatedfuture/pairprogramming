@@ -63,7 +63,7 @@ class AppointmentsController < ApplicationController
     redirect_to user_profile_path(u, u.profile.id)
     AppointmentMailer.confirmation_email("zerega85@gmail.com").deliver
 
-    AppointmentMailer.confirmation_email('zerega85@gmail.com').deliver
+    
  
   end
 

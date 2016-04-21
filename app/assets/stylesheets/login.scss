@@ -6,6 +6,26 @@
 body{
 	background-color: black;
 }
+#user_nav{
+	background-color: black;
+	width: 100%;
+	height: 40px;
+	padding: 20px 0px;
+	a{
+	font-size: 1.4em;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    &:hover{
+    	color:lime;
+    	background-color: blue;
+    }
+	}
+	p{
+		color: red;
+	}
+}
 
 .wrapper {
 	background-image: url('http://codingbasics.net/wp-content/uploads/2014/04/computer-programming.jpeg');
@@ -15,9 +35,19 @@ body{
 	height: 700px;
 	width: 100%;
 	text-align: center;
+	margin-top: 0px;
+	h1{
+		margin-top: 0px;
+		padding-top: 50px;
+		margin-bottom: 20px;
+	}
+	h2{
+		background-color: black;
+		padding: 15px 0px;
+	}
 	
 .front_title{
-	padding-top: 50px;
+	
 	color: lime;
 	font-weight: bold;
 	font-family: "space";
@@ -47,5 +77,34 @@ body{
 	align-items: stretch;
 	.aboutboxes{
 		flex-basis: auto;
+		text-align: center;
+		border: 3px lime solid;
+		background-color: black;
+		color: green;
+		padding: 30px 20px 30px 20px;
+		h2{
+			color: white;
+			font-style: italic;
+		}
 	}
+}
+.signupwrapper{
+	background-image: url('http://pairprogrammingisfun.com/images/header.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 558px;
+	h2{
+		margin-top: 0px;
+	}
+	.signupbox{
+		width: 30%;
+		margin-left: 70%;
+		background-color: black;
+		text-align: center;
+		color: orange;
+		font-weight: bold;
+	}
+}
+#profile_wrapper{
+	background-image: url('http://i.imgur.com/CquHkYD.gif');
 }
