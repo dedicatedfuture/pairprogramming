@@ -14,6 +14,17 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.action_mailer.smtp_settings = {
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => "gmail.com",
+      :user_name            => ENV["GOOGLE_UNAME"],
+      :password             => ENV["GOOGLE_PWORD"],
+      :authentication       => :plain,
+      :enable_starttls_auto => true
+  }
+
+
 
   config.action_mailer.default_url_options = { host: 'pairprogramming987.herokuapp.com'}
 
