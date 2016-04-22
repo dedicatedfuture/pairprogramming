@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .wholepagewrapper{
+  text-align: center;
 	  background-color: #A142E9;
     padding: 0px 0px 0px 0px;
     display: block;
@@ -34,14 +35,27 @@
               width: 100%;
               height: 100%;
               left: 0px;
-              top: 100px;
+              top: 0px;
               padding-top: 100px;
               padding-bottom: 100px;
               background-color: grey;
+             
               display: none;
             }
         #modalinfo{
+          padding: 30px 20px;
         	background-color: black;
         	color: orange;
           text-align: center;
+          width: 40%;
+          margin: auto;
+          opacity: 1;
+          z-index: 2;
+        
+          }
+            
+            .close{
+              float: right;
+              font-size: 3em;
             }
+          

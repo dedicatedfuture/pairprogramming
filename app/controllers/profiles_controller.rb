@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new
     
     @skill = Skill.new
+    @availability = Availability.new()
     
   end
 
