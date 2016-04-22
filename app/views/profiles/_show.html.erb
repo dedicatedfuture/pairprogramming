@@ -4,13 +4,13 @@
      
 
    
-      <h2><%= current_user.profile.fname %>'s Appointments</h2>
+      <h2><%= current_user.profile.fname %>'s Learning Appointments</h2>
 
       <ol>
         <% current_user.menteeing_appointments.each do |appt| %>
           <li class= "usersappointments">
           <%= appt.title %> at: <%= appt.start.strftime("%b %d %Y")%>   |  <%= appt.starttime.strftime("%I:%M%p") %> <br>
-          ends at: <%= appt.end.strftime("%b %d %Y") %> |      <%= appt.endtime.strftime("%I:%M%p") %> 
+          ends at: <%= appt.end.strftime("%b %d %Y") %> |      <%= appt.endtime.strftime("%I:%M%p") %> <br>
           with <%= appt.mentor.profile.fname %>
         <%= link_to "Edit", edit_appointment_path(appt) %> 
         |
@@ -24,6 +24,21 @@
 
 
     <div id="mycalendar"></div>
+
+    <h2><%= current_user.profile.fname %>'s Teaching Appointments</h2>
+
+      <ol>
+        <% current_user.mentoring_appointments.each do |appt| %>
+          <li class= "usersappointments">
+          <%= appt.title %> at: <%= appt.start.strftime("%b %d %Y")%>   |  <%= appt.starttime.strftime("%I:%M%p") %> <br>
+          ends at: <%= appt.end.strftime("%b %d %Y") %> |      <%= appt.endtime.strftime("%I:%M%p") %> <br>
+          with <%= appt.mentee.profile.fname %>
+        <%= link_to "Edit", edit_appointment_path(appt) %> 
+        |
+         <%= link_to "Delete", appointment_path(appt), data: {confirm:  "Are you sure you want to delete?"}, :method => :delete %>
+         </li>
+        <% end %>
+      </ol>
 
 
     <h2><%= @currentprofile.fname %>'s Skills</h2>

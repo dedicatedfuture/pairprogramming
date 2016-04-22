@@ -17,6 +17,9 @@
 @import "font-awesome-sprockets";
   @import "font-awesome";
 
+  body{
+  	font-family: 'Avant Garde', Avantgarde, 'Century Gothic', 
+  }
   a{
   	text-decoration: none;
   }
@@ -103,4 +106,25 @@ button:hover {
 button:active {
 	position:relative;
 	top:1px;
+}
+
+#mycalendar{
+	background-color: white;
+}
+#otherusercalendar{
+	background-color: white;
+}
+ul{
+	list-style-type: none;
+}
+.title{
+	font-size: 2em;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.body{
+	font-size: 1.5em;
+}
+.whole-post{
+	border: 5px solid purple;
 }

@@ -14,7 +14,7 @@
 	<% if user_signed_in? && current_user.profile %>
 	
 		
-		<%= link_to 'Change Profile Model', edit_user_profile_path(current_user.profile.id, current_user.id) %> |
+		<%= link_to 'Update Profile/Add Skills or Availabilities', edit_user_profile_path(current_user.profile.id, current_user.id) %> |
 		<%= link_to "Log Out", destroy_user_session_path, method: :delete %>
 		|
 	

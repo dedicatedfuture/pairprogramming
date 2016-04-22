@@ -1,5 +1,21 @@
-Hello, <%= @user.profile.fname %> 
+<h1>Hello, <%= @user.profile.fname %> </h1>
 
-You have been requested for a pair programming appointment by <%= @requestuser.profile.fname %>. 
+<p>
 
-Please go to Pair Up! to accept or decline this invitation. 
+You have been requested for a pair programming appointment by <%= @requestuser.profile.fname %>. Please coordinate with this user by sending them an email at <%= @requestuser.email %>. You can use skype to share your screen while programming. Thier skype handle is <%= @requestuser.profile.skype %>.</p>
+
+<p>
+
+Please go to Pair Up! to view the appointment. 
+</p>
+<p>
+Keep on coding!
+</p>
+<p>
+
+Sincerely, 
+</p>
+<p>
+The hardworking Pair Up! team. 
+
+</p>
