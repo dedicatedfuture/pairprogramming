@@ -22,6 +22,12 @@
          <% end %>
       
 
+      <div id="availabilitywrapper">
+         <h2>Whats your weekly availability?</h2>
+         <p>Be sure to enter your availability or nobody can make an appointment with you!</p>
+         <%= render partial: 'availabilities/availabilityform' %>
+     </div>
+
       <div id="skills_wrapper">
          <h2 class="skillstitle">What programming skills are you familiar with?</h2>
         <%= form_for [current_user, @skill], url: {controller: :skills, action: "create"}, :id => 'skillform' do |f| %>

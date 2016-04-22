@@ -1,3 +1,4 @@
+
 <span class="close">x</span>
 <%= form_for @appointment, html: {class: "nifty_form", id: "basicExample"} do |f| %>
 <%= f.hidden_field :mentee_id, :value => current_user.id %>
@@ -14,7 +15,7 @@ Title: <%= f.text_field :title %><br>
   End date & time:
   <%= f.datetime_field :end, class: "date end"  %>
    <% f.label :endtime %>
-  <%= f.text_field :endtime, class: "time end" %>
+  <%= f.text_field :endtime, class: "time end" %><br>
 
  
   <%= f.submit "Create" %>
