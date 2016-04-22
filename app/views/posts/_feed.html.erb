@@ -77,13 +77,3 @@
   </div>
 <% end %>
 </div>
-<div class="outu"
-  <div class="coolu">
-    <h2 class="coolusers">Check out all of our programmers</h2>
-    <ol class="coolusers">
-    <% @users.each do |user| %>
-      <li ><%= link_to user.profile.fname, user_profile_path(user.id, user.id) %></li>
-      <% end %>
-  </ol>
-  </div>
-</div>
