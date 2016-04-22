@@ -20,9 +20,17 @@
   background-color: #5ECBFF;
   padding-left: 10px;
 
+
 }
 .contentwrapper{
 	margin-left: 20px;
+}
+.editlogin{
+  position: absolute;
+  padding-top: 20px;
+  text-decoration: none;
+  font-size: 2em;
+  color: red;
 }
 
 #modalinfo{
@@ -57,5 +65,8 @@
             .close{
               float: right;
               font-size: 3em;
+            }
+            #basicExample td{
+              padding: 10px;
             }
           

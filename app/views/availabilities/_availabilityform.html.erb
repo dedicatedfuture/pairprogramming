@@ -1,18 +1,26 @@
 <%= form_for @availability, html: {class: "nifty_form", id: "basicExample"} do |f| %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-   
-   <% f.label :dow %>
-   Regularly available day of the week:
- 	<%= f.select :dow, [['Sunday', 0],['Monday', 1], ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6]]%><br>
+<table>
 
-Start time:
-  <% f.label :start %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+<tr>
+	<td><%= f.label :dow, "Regularly available day of the week:" %></td> 
+	<td><%= f.select :dow, [['Sunday', 0],['Monday', 1], ['Tuesday', 2], ['Wednesday', 3], ['Thursday', 4], ['Friday', 5], ['Saturday', 6]]%></td>
+</tr>   
+<tr>
+	<td><%= f.label :start, "Start time:" %></td>
+	<td><%= f.text_field :start, class: "time" %></td>   
+</tr>
+<tr>
+	<td><%= f.label :end, "End time:" %></td>
+	<td><%= f.text_field :end , class: "time"%></td>
+</tr>
+  <tr>
+  	<td><%= f.submit "Create" %></td>
+  </tr>
   
-  <%= f.text_field :start, class: "time" %><br>
-  End time:
-  <% f.label :end %>
+  
+  
+
  
-  <%= f.text_field :end , class: "time"%><br>
- 
-  <%= f.submit "Create" %>
+  </table>
 <% end %>

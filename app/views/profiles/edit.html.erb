@@ -1,5 +1,5 @@
 <div id="profilepagewrapper">
-<%= link_to 'Edit Log In Info', edit_user_registration_path(current_user) %> 
+<%= link_to 'Edit Log In Info', edit_user_registration_path(current_user), :class => "editlogin" %> 
   <div id="profile_wrapper">
      <h2>Edit Your Profile</h2>
      <%= form_for [current_user, @profile], :html => { :multipart => true } do |f| %>
@@ -27,6 +27,7 @@
          <%= render partial: 'availabilities/availabilityform' %>
      </div>
 
+    
 
   <div id="skills_wrapper">
      <h2 class="skillstitle">What programming skills are you familiar with?</h2>
