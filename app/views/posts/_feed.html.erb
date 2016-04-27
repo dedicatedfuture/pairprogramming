@@ -42,12 +42,13 @@
     <% post.comments.reverse.first(3).each do |comment|%>
       <div class="comment">
         <div class="column-one">
-          <%= comment.user.profile.fname %><br>
+        <%= comment.message %><br>
+          <%= link_to comment.user.profile.fname, user_profile_path(comment.user_id, comment.user_id) %><br>
           <span class='date'><%= comment.created_at.strftime("%l:%M on ")%></span>
           <span class='date'><%= comment.created_at.strftime("%D")%></span>
         </div>
         <div class="column-two">
-          <%= comment.message %>
+          
           <% if logged_in? %>
             <% if current_user.id == post.user.id && session[:user_id] != comment.user_id %>
               <span class='delete-button link'> <%= link_to 'Delete', post_comment_path(post.id, comment.id), method: :delete, :class => 'button-two' %></span>
