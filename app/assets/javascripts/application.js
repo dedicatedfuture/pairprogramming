@@ -15,6 +15,7 @@
 //= require jquery-ui/datepicker
 //= require turbolinks
 //= require jquery.turbolinks
+//= require autocomplete-rails
 //= require_tree .
 
 $(document).ready(function() {

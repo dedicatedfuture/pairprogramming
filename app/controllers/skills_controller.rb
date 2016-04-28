@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-
+  autocomplete :skills, :skill, :display_value => :capitalizer
   def new
 
     @skill = Skill.new

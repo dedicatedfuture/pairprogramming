@@ -4,21 +4,21 @@
          <h2>Create Your Profile</h2>
          <%= form_for [current_user, @profile], :html => { :multipart => true } do |f| %>
          <%= f.label :fname, "First Name" %>
-         <%= f.text_field :fname %><br>
+         <%= f.text_field :fname, :class => 'form-control' %><br>
          <%= f.label :lname, "Last Name" %>
-         <%= f.text_field :lname %><br>
-         <%= f.label :bio, "About yourself" %>
-         <%= f.text_field :bio %><br>
-         <%= f.label :workexp, "Coding Work Experience" %>
-         <%= f.text_field :workexp %><br>
-         <%= f.label :teachexp, "Coding Teaching Experience" %>
-         <%= f.text_field :teachexp %><br>
-         <%= f.label :skillexp, "Coding Skills Experience" %>
-         <%= f.text_field :skillexp %><br>
+         <%= f.text_field :lname, :class => 'form-control' %><br>
+         <%= f.label :bio, "Please tell us about yourself." %>
+         <%= f.text_field :bio, :class => 'form-control' %><br>
+         <%= f.label :workexp, "Do you have any coding work experience?" %>
+         <%= f.text_area :workexp, :class => 'form-control' %><br>
+         <%= f.label :teachexp, "Do you have any coding teaching experience?" %>
+         <%= f.text_area :teachexp, :class => 'form-control' %><br>
+         <%= f.label :skillexp, "Do you have any other coding skills?" %>
+         <%= f.text_area :skillexp, :class => 'form-control' %><br>
          <%= f.label :skype, "Skype Username" %>
-         <%= f.text_field :skype %><br>
+         <%= f.text_field :skype, :class => 'form-control' %><br>
 
-         <%= f.submit :create, :class => "form_button" %>
+         <%= f.submit :Create, :class => "form_button" %>
          <% end %>
       
 

@@ -10,7 +10,28 @@
 		<% @profile.user.skills.each do |skill| %>
 			<li><%= skill.skill %></li>
 		<% end %>
-
+		</ul>
+		<div class="legend">
+			<table>
+				<tr>
+					<td colspan="2">Legend</td>
+				</tr>
+				<tr>
+					<td>Open availability:</td>
+					<td>Green</td>
+				</tr>
+				<tr>
+					<td>Learning appointment:</td>
+					<td>Yellow</td>
+				</tr>
+				<tr>
+					<td>Teaching appointment:</td>
+					<td>Blue</td>
+				</tr>
+				</table>
+		</div>
+		
+		<br>
 
 		<div id="otherusercalendar"></div>
 		

@@ -15,7 +15,9 @@ get 'availabilities/otheruserjson/:user_id', to: 'availabilities#otheruserjson'
 
 resources :users do
    resources :profiles
-   resources :skills
+   resources :skills do 
+    get :autocomplete_skills_skill, :on => :collection
+  end
 
    resources :unavailability
 

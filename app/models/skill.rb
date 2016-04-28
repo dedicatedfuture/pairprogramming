@@ -7,6 +7,10 @@ def self.search(search)
   where("skill LIKE ?", "%#{search}%") 
 end
 
+def capitalizer
+    "#{self.name}.camelize"
+ end
+
 
 # def self.search(search)
 #   if search

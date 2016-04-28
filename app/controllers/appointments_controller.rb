@@ -3,16 +3,8 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments
   
-  def index
-
-  
-
-   
+  def index 
     @posts = Post.all 
-   
-   
-   
-    
   end
 
   # GET /appointments/1
@@ -22,12 +14,11 @@ class AppointmentsController < ApplicationController
      @currentprofile = get_profile
 
     @appointments = current_user.appointments
-       end
+  end
 
   # GET /appointments/new
   def new
-    @appointment = Appointment.new
-    
+    @appointment = Appointment.new  
   end
 
   # GET /appointments/1/edit
@@ -42,32 +33,19 @@ class AppointmentsController < ApplicationController
 
     # current_user.appointments.push or UsersAppointments.create. TWO OF THESE
     aparams = appointment_params
-    @appointment = Appointment.create(aparams)
-
-   #  client = SendGrid::Client.new do |c|
-   #     c.api_key = ENV['SENDGRID_API_KEY']
-   #  end   
-
-   # @content = aparams
-   #    mail = SendGrid::Mail.new do |m|
-   #    m.to = 'zerega85@gmail.com'
-   #    m.from = 'zeregamarketing@gmail.com'
-   #    m.subject = "Pair up! New Appointment Request!!!"
-   #    m.text = @content
-   #  end
-
-    # res = client.send(mail)
-
-    
-
-
     u = User.find(aparams["mentor_id"])
     cu = current_user
    
-    AppointmentMailer.confirmation_email(u, cu).deliver
-
-     redirect_to user_profile_path(u, u.profile.id)
- 
+      if aparams[:start] > DateTime.now 
+          @appointment = Appointment.create(aparams)
+         
+          AppointmentMailer.confirmation_email(u, cu).deliver
+          redirect_to user_profile_path(u, u.profile.id)
+      else
+        flash[:alert] = "Can not make appointments in the past!"
+        redirect_to user_profile_path(u, u.profile.id)
+      end
+   
   end
 
   # PATCH/PUT /appointments/1
@@ -98,7 +76,6 @@ class AppointmentsController < ApplicationController
 
 
    def otheruserjson
-    puts params
       @appointments = User.find(params[:user_id]).mentoring_appointments
     render json: @appointments 
   end
@@ -110,7 +87,6 @@ class AppointmentsController < ApplicationController
 
 
    def otherusermenteejson
-    puts params
       @appointments = User.find(params[:user_id]).menteeing_appointments
     render json: @appointments 
   end
@@ -126,7 +102,6 @@ class AppointmentsController < ApplicationController
       @appointment = Appointment.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
       starttotal = params["appointment"]['start'] + params["appointment"]['starttime']
       endtotal = params["appointment"]['end'] + params["appointment"]['endtime']
