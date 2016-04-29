@@ -21,7 +21,7 @@
       <%= post.body %>
 
     </div>
-    <p>-<%= link_to post.user.profile.fname, user_profile_path(post.user_id, post.user_id) %></p>
+    <p>-<%= link_to post.user.profile.fname, user_profile_path(post.user_id, post.user_id), :class => 'userlink' %></p>
     <% if logged_in? %>
       <span class='comment-button link'><button class="button">Add a comment.</button></span>
       <span class='comment-view link'>
@@ -43,7 +43,7 @@
       <div class="comment">
         <div class="column-one">
         <%= comment.message %><br>
-          <%= link_to comment.user.profile.fname, user_profile_path(comment.user_id, comment.user_id) %><br>
+          <%= link_to comment.user.profile.fname, user_profile_path(comment.user_id, comment.user_id), :class => "userlink" %><br>
           <span class='date'><%= comment.created_at.strftime("%l:%M on ")%></span>
           <span class='date'><%= comment.created_at.strftime("%D")%></span>
         </div>
@@ -72,7 +72,7 @@
           <%= i.hidden_field :user_id, :value => current_user.id %>
           <%= i.hidden_field :post_id, :value => post.id %>
           <%= i.label :message %>
-          <%= i.text_area :message, :id => "message_area" %>
+          <%= i.text_area :message, :id => "message_area", :class => 'form-control' %>
           <%= i.submit :create %>
         <% end %>
       </div>

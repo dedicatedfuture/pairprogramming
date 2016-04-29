@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .wholepagewrapper{
   text-align: center;
-	  background-color: #A142E9;
+	  background-color: #3299BB;
     padding: 0px 0px 0px 0px;
     display: block;
     width: 100%;
@@ -11,20 +11,18 @@
 }
 
 .contentwrapper{
-  background-color: #49A59A;
+  background-color: #3299BB;
   width: 60%;
-  padding-left: 25px;
+  
 }
 .profilewrapper {
 	max-width: 30%;
-  background-color: #5ECBFF;
+  background-color: #E9E9E9;
   padding-left: 10px;
 
 
 }
-.contentwrapper{
-	margin-left: 20px;
-}
+
 .editlogin{
   position: absolute;
   padding-top: 20px;
@@ -32,6 +30,38 @@
   font-size: 2em;
   color: red;
 }
+.usersappointments{
+  border: 2px solid black;
+  padding: 5px;
+  margin-right: 10px;
+  background-color: white;
+}
+.legend{
+  background-color: #E9E9E9;
+  border: 3px solid black;
+  width: 30%;
+  padding: 10px;
+  .green{
+    background-color: #208000;
+    color: white;
+  }
+  .yellow{
+    background-color: #fffb00;
+    color: black;
+  }
+  .blue{
+    background-color: #4086b1;
+    color: white;
+  }
+}
+.profileskills{
+  list-style-type: square;
+}
+.profileskills li{
+  
+  display: inline;
+}
+
 
 #modalinfo{
 	display: none;
@@ -46,8 +76,7 @@
               top: 0px;
               padding-top: 100px;
               padding-bottom: 100px;
-              background-color: grey;
-             
+              background-color: rgba(0,0,0,0.6);
               display: none;
             }
         #modalinfo{
@@ -57,16 +86,21 @@
           text-align: center;
           width: 40%;
           margin: auto;
-          opacity: 1;
           z-index: 2;
         
           }
             
-            .close{
+            .closer{
               float: right;
               font-size: 3em;
+              opacity: 1;
+              color: orange;
+              &:hover{
+                color:yellow;
+              }
             }
             #basicExample td{
               padding: 10px;
             }
+           
           

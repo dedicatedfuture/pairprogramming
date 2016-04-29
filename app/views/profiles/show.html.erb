@@ -5,15 +5,53 @@
 
 	<div class="contentwrapper" data-user-id="<%= @profile.user.id %>">
 		<h1><%= @profile.fname %></h1>
+		<h4><%= @profile.fname %>'s skills: </h4>
 		
-		<ul>
+		<ul class='profileskills'>
 		<% @profile.user.skills.each do |skill| %>
-			<li><%= skill.skill %></li>
+			<li><%= skill.skill %>,</li>
 		<% end %>
-
+		</ul>
+		<div class="legend">
+			<table>
+				<tr>
+					<td colspan="2">Legend</td>
+				</tr>
+				<tr>
+					<td>Open availability:</td>
+					<td class='green'>Green</td>
+				</tr>
+				<tr>
+					<td>Learning appointment:</td>
+					<td class='yellow'>Yellow</td>
+				</tr>
+				<tr>
+					<td>Teaching appointment:</td>
+					<td class='blue'>Blue</td>
+				</tr>
+				</table>
+		</div>
+		
+		<br>
 
 		<div id="otherusercalendar"></div>
 		
+		<div class="bio">
+			<h5>A little bit about myself:</h5>
+			 	<%= @profile.bio %>
+			<h5>Some of my previous coding work experience:</h5>
+				<%= @profile.workexp %>
+			<h5>Some of my coding teaching experience:</h5>
+				<%= @profile.teachexp %>
+			<h5>Some of my other coding experience:</h5>
+				<%= @profile.skillexp %>
+
+		</div>
+
+
+
+
+
 		<div id="modalinfoouter">
 			<div id="modalinfo">
 				<%= render partial: "profiles/form" %>

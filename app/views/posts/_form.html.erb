@@ -10,12 +10,11 @@
       </ul>
     </div>
   <% end %>
-
   
       <%= f.label :title %>
-      <%= f.text_field :title, :class => 'title_area' %><br><br>
+      <%= f.text_field :title, :class => 'title_area form-control' %><br><br>
       <%= f.label :body %>
-      <%= f.text_area :body, :class => "message_area" %><br><br>
+      <%= f.text_area :body, :class => "message_area form-control" %><br><br>
   
       <%= f.hidden_field :user_id, :value => current_user.id %><br><br><br>
      

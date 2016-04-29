@@ -30,12 +30,14 @@ $(document).ready(function() {
 
          eventClick: function(calEvent, jsEvent, view) {
 
-                $('#modalinfoouter').show();
+                $('#modalinfoouter').fadeIn("slow", function(){
+                    $('#modalinfoouter').show();
+                });
                 $('#modalinfo').css("display", "block");
                 var datey = new Date(calEvent.start);
                 var edatey = new Date(calEvent.end);
-                $('#appointment_start').val((datey.getMonth() + 1) + '/' + (datey.getDate() + 1)+ '/' +  datey.getFullYear());
-                $('#appointment_end').val((edatey.getMonth() + 1) + '/' + (edatey.getDate() + 1)+ '/' +  edatey.getFullYear());
+                $('#appointment_start').val((datey.getMonth() + 1) + '/' + (datey.getDate())+ '/' +  datey.getFullYear());
+                $('#appointment_end').val((edatey.getMonth() + 1) + '/' + (edatey.getDate())+ '/' +  edatey.getFullYear());
               
                
 
@@ -60,7 +62,7 @@ $(document).ready(function() {
         // put your options and callbacks here
     })
 
-     $('.close').click(function(){
+     $('.closer').click(function(){
       $(this).parent().parent().css("display", "none");
    })
 });

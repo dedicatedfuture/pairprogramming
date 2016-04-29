@@ -1,17 +1,17 @@
 <%= form_tag root_path, :method => 'get' do %>
-	<%= text_field_tag :search, params[:search] %>
+	<%= text_field_tag :search, params[:search], :class => 'form-control' %>
 <%= submit_tag "Search for users with skills", :name => nil %>
 <% end %>
 
 <% if @userreturn.present? %>
-<ul>
-	<% @userreturn.each do |u| %>
-		<li> <%= link_to u.profile.fname, user_profile_path(u.id, u.id) %> </li>
+<ul class='skillssearchresults'>
+	<% @userreturn.first(10).each do |u| %>
+		<li> <%= link_to u.profile.fname, user_profile_path(u.id, u.id), :class => 'userlink' %> </li>
 	<% end %>
 </ul>
 <% end %>
 <% if @skills.present? %>
-	
+	<h4>Popular Skills:</h4>
  <ul>
 	<% @skills.limit(10).each do |s| %>
  

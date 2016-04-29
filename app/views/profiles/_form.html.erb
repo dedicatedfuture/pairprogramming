@@ -1,34 +1,28 @@
 
-<span class="close">x</span>
+<span class="closer">x</span>
 <%= form_for @appointment, html: {class: "nifty_form", id: "basicExample"} do |f| %>
   <table>
 
       <%= f.hidden_field :mentee_id, :value => current_user.id %>
       <%= f.hidden_field :mentor_id, :value => @profile.user.id %>
       <tr>
-        <td> <%= f.label :title, "Title:" %></td>
-        <td> <%= f.text_field :title %></td>
+        <td> <%= f.label :title, "Appointment Topic:" %></td>
+        <td colspan="2"> <%= f.text_field :title, class: "form-control" %></td>
       </tr>
       <tr>
         <td><%= f.label :start, "Start date & time:" %></td>
-        <td><%= f.datetime_field :start, class: "date start" %></td>
-        <td><%= f.text_field :starttime, class: "time start" %></td>
+        <td><%= f.datetime_field :start, class: "date start form-control" %></td>
+        <td><%= f.text_field :starttime, class: "time start form-control" %></td>
       </tr>
       <tr>
         <td><%= f.label :end, "End date & time:" %></td>
-        <td><%= f.datetime_field :end, class: "date end"  %></td>
-        <td><%= f.text_field :endtime, class: "time end" %><br></td>
+        <td><%= f.datetime_field :end, class: "date end form-control"  %></td>
+        <td><%= f.text_field :endtime, class: "time end form-control" %><br></td>
       </tr>
       <tr>
         <td></td>
         <td><%= f.submit "Create" %></td>
       </tr>  
-        
-       
-        
-        
-     
-
        
   </table>
 <% end %>
