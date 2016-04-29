@@ -1,10 +1,10 @@
 <%= form_tag root_path, :method => 'get' do %>
-	<%= autocomplete_field_tag :search, params[:search], :class => 'form-control' %>
+	<%= text_field_tag :search, params[:search], :class => 'form-control' %>
 <%= submit_tag "Search for users with skills", :name => nil %>
 <% end %>
 
 <% if @userreturn.present? %>
-<ul>
+<ul class='skillssearchresults'>
 	<% @userreturn.each do |u| %>
 		<li> <%= link_to u.profile.fname, user_profile_path(u.id, u.id), :class => 'userlink' %> </li>
 	<% end %>

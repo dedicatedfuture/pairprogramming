@@ -1,10 +1,10 @@
 <div class="profilewrapper">
-      <h2><%= link_to "#{current_user.profile.fname}'s Profile", edit_user_profile_path(current_user.profile.id, current_user.id)  %></h2>
+      <h4><%= link_to "#{current_user.profile.fname}'s Profile", edit_user_profile_path(current_user.profile.id, current_user.id), :class => 'userprofiletitle'  %></h4>
 
      
 
    
-      <h2><%= current_user.profile.fname %>'s Learning Appointments</h2>
+      <h4><%= current_user.profile.fname %>'s Learning Appointments</h4>
 
       <ol>
         <% current_user.menteeing_appointments.each do |appt| %>
@@ -25,7 +25,7 @@
 
     <div id="mycalendar"></div>
 
-    <h2><%= current_user.profile.fname %>'s Teaching Appointments</h2>
+    <h4><%= current_user.profile.fname %>'s Teaching Appointments</h4>
 
       <ol>
         <% current_user.mentoring_appointments.each do |appt| %>
@@ -41,7 +41,7 @@
       </ol>
 
 
-    <h2><%= @currentprofile.fname %>'s Skills</h2>
+    <h4><%= @currentprofile.fname %>'s Skills</h4>
     <ol>
      <% @currentprofile.user.skills.each do |skill| %>
         <li class= "userskills"> <%= skill.skill %></li>

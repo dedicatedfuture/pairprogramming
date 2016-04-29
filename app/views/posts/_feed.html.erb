@@ -43,7 +43,7 @@
       <div class="comment">
         <div class="column-one">
         <%= comment.message %><br>
-          <%= link_to comment.user.profile.fname, user_profile_path(comment.user_id, comment.user_id) %><br>
+          <%= link_to comment.user.profile.fname, user_profile_path(comment.user_id, comment.user_id), :class => "userlink" %><br>
           <span class='date'><%= comment.created_at.strftime("%l:%M on ")%></span>
           <span class='date'><%= comment.created_at.strftime("%D")%></span>
         </div>
