@@ -5,13 +5,13 @@
 
 <% if @userreturn.present? %>
 <ul class='skillssearchresults'>
-	<% @userreturn.each do |u| %>
+	<% @userreturn.first(10).each do |u| %>
 		<li> <%= link_to u.profile.fname, user_profile_path(u.id, u.id), :class => 'userlink' %> </li>
 	<% end %>
 </ul>
 <% end %>
 <% if @skills.present? %>
-	
+	<h4>Popular Skills:</h4>
  <ul>
 	<% @skills.limit(10).each do |s| %>
  

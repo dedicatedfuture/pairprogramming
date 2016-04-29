@@ -37,10 +37,14 @@
 		<div id="otherusercalendar"></div>
 		
 		<div class="bio">
-		<%= @profile.bio %>
-		<%= @profile.workexp %>
-		<%= @profile.teachexp %>
-		<%= @profile.workexp %>
+			<h5>A little bit about myself:</h5>
+			 	<%= @profile.bio %>
+			<h5>Some of my previous coding work experience:</h5>
+				<%= @profile.workexp %>
+			<h5>Some of my coding teaching experience:</h5>
+				<%= @profile.teachexp %>
+			<h5>Some of my other coding experience:</h5>
+				<%= @profile.skillexp %>
 
 		</div>
 
